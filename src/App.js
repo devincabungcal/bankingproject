@@ -11,7 +11,17 @@ import userContext from './components/Context';
 
 function App() {
 
-  const globalUsers = {users:[{name:'', email:'', password:''}]}
+  const [currentUser, setCurrentUser]         = React.useState(null);
+  const updateBalance = function (newBalance){
+    setCurrentUser(function(prevCurrentUser){
+      return{
+        name:prevCurrentUser.name,
+        email:prevCurrentUser.email,
+        password:prevCurrentUser.password,
+        balance:newBalance
+      }
+    })
+  }
  
   return (
     <div className="App">
@@ -19,7 +29,7 @@ function App() {
       
      <Main/>
       
-      <userContext.Provider value={{globalUsers}}>
+      <userContext.Provider value={{currentUser}}>
   
         <Routes>
           

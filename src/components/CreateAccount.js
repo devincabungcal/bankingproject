@@ -1,6 +1,7 @@
 import React from "react";
 import userContext from "./Context";
 import Card from "./Card";
+import { createAccount } from "../api";
 
 function CreateAccount(){
     const [show, setShow]         = React.useState(true);
@@ -16,6 +17,7 @@ function CreateAccount(){
       if (!validate(name,     'name'))     return;
       if (!validate(email,    'email'))    return;
       if (!validate(password, 'password')) return;
+      createAccount(name, email, password)
       setShow(false);
     }   
 
