@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Main from './components/MainComponent'
+import{ HashRouter, Route, Routes } from "react-router-dom"
+import CreateAccount from './components/CreateAccount';
+import Deposit from './components/Deposit';
+import Withdraw from './components/Withdraw';
+import AllData from './components/AllData';
+import Home from './components/Home';
+import userContext from './components/Context';
+
 
 function App() {
+
+  const globalUsers = {users:[{name:'', email:'', password:''}]}
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+      
+     <Main/>
+      
+      <userContext.Provider value={{globalUsers}}>
+  
+        <Routes>
+          
+        <Route path="/" element={<Home/>} />
+        <Route path="home" element={<Home/>} />
+        <Route path="createAccount" element={<CreateAccount/>} />
+        <Route path="deposit" element={<Deposit/>} />
+        <Route path="withdraw" element={<Withdraw/>} />
+        <Route path="alldata" element={<AllData/>} />
+        </Routes>
+       
+      </userContext.Provider>
+      
+     
     </div>
   );
 }
