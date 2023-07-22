@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/bankingproject/static/css/main.e6c13ad2.css",
-    "main.js": "/bankingproject/static/js/main.0ad93fc1.js",
+    "main.js": "/bankingproject/static/js/main.64663754.js",
     "static/js/787.7845fbf1.chunk.js": "/bankingproject/static/js/787.7845fbf1.chunk.js",
     "static/media/bank_PNG29.png": "/bankingproject/static/media/bank_PNG29.7afc359383d7ef41f397.png",
     "index.html": "/bankingproject/index.html",
     "main.e6c13ad2.css.map": "/bankingproject/static/css/main.e6c13ad2.css.map",
-    "main.0ad93fc1.js.map": "/bankingproject/static/js/main.0ad93fc1.js.map",
+    "main.64663754.js.map": "/bankingproject/static/js/main.64663754.js.map",
     "787.7845fbf1.chunk.js.map": "/bankingproject/static/js/787.7845fbf1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.0ad93fc1.js"
+    "static/js/main.64663754.js"
   ]
 }
