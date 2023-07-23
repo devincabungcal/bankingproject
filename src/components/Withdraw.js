@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeWithdrawal } from "../api";
+import userContext from "./Context";
+
 
 let status = "Account Balance $0";
 
 const Withdraw = () => {
-  const [withdraw, setWithdraw]         = React.useState("");
+  const [withdraw, setWithdraw]         = useState("");
+  const { currentUser, updateBalance } = useContext(userContext);
+
 
   const handleSubmit = event => {
-    makeWithdrawal(withdraw)
+    const newBalance = makeWithdrawal(withdraw)
+    updateBalance(newBalance)
+
   };
   
   return (
@@ -15,7 +21,8 @@ const Withdraw = () => {
       Withdraw:
       <input type="number" value={withdraw} onChange={e => setWithdraw(+e.currentTarget.value)}></input>
       <input type="submit" onClick={handleSubmit}></input>
-      <h1 id="total">{status}</h1>
+      <h1 id="total">Account Balance ${currentUser?.balance}</h1>
+      
     </label>
   );
 };

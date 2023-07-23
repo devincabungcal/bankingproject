@@ -1,23 +1,24 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import userContext from "./Context";
 import Card from "./Card";
 import { createAccount } from "../api";
 
 function CreateAccount(){
-    const [show, setShow]         = React.useState(true);
-    const [status, setStatus]     = React.useState('');
-    const [name, setName]         = React.useState('');
-    const [email, setEmail]       = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [show, setShow]         = useState(true);
+    const [status, setStatus]     = useState('');
+    const [name, setName]         = useState('');
+    const [email, setEmail]       = useState('');
+    const [password, setPassword] = useState('');
   
-    const ctx = React.useContext(userContext); 
+    const {setCurrentUser} = useContext(userContext);  
   
     function handleCreate(){
       console.log(name,email,password);
       if (!validate(name,     'name'))     return;
       if (!validate(email,    'email'))    return;
       if (!validate(password, 'password')) return;
-      createAccount(name, email, password)
+      const newUser = createAccount(name, email, password)
+      setCurrentUser(newUser)
       setShow(false);
     }   
 
